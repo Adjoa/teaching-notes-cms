@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     @teacher = Teacher.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     if @teacher.valid?
       @teacher.save
-      session[user_id] = @teacher.id
+      session[:id] = @teacher.id
+      redirect '/students'
     else
       redirect '/signup'
     end
