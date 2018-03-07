@@ -4,8 +4,8 @@ class CreateEntries < ActiveRecord::Migration
       t.string :title
       t.string :content
       t.integer :student_id
-      t.integer :teacher_id
 
       t.timestamps null:false
+    end
   end
 end
