@@ -3,5 +3,6 @@ class CreateStudents < ActiveRecord::Migration
     create_table :students do |t|
       t.string :name
       t.string :email
+      t.integer :teacher_id
   end
 end
