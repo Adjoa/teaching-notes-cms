@@ -1,3 +1,7 @@
 class UsersController < ApplicationController
 
-end 
+  get '/signup' do
+    erb :'/users/signup'
+  end
+
+end
