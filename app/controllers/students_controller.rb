@@ -31,10 +31,20 @@ class StudentsController < ApplicationController
 
   get '/students/:id' do
     if logged_in?
-      @teacher = Teacher.find(session[:id])
-      @student = Student.find(params[:id])
-      if @teacher.students.include?(@student)
-        erb :'students/view_student'
+      if @student.teacher_id == session[:id]
+        erb :'/students/view_student'
+      else
+        redirect '/students'
+      end
+    else
+      redirect '/login'
+    end
+  end
+
+  get '/students/:id/edit' do
+    if logged_in?
+      if @student.teacher_id == session[:id]
+        erb :'/students/edit_student_info'
       else
         redirect '/students'
       end
