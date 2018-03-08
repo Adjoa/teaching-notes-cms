@@ -1,5 +1,9 @@
 class StudentsController < ApplicationController
   get '/students' do
-    erb :'/students/index'
+    if logged_in?
+      erb :'/students/index'
+    else
+      redirect '/login'
+    end
   end
 end
