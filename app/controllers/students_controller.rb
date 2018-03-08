@@ -31,6 +31,7 @@ class StudentsController < ApplicationController
 
   get '/students/:id' do
     if logged_in?
+      @student = Student.find(params[:id])
       if @student.teacher_id == session[:id]
         erb :'/students/view_student'
       else
@@ -52,5 +53,18 @@ class StudentsController < ApplicationController
       redirect '/login'
     end
   end
+
+  patch '/students/:id' do
+    @student = Student.find(params[:id])
+    @student.attributes = params[:student]
+    if @student.valid?
+      @student.save
+      redirect "/students/#{@student.id}"
+    else
+      redirect "/students/#{@student.id}/edit"
+    end
+  end
+
+
 
 end
