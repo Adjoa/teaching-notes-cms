@@ -19,7 +19,15 @@ class UsersController < ApplicationController
     erb :'/users/login'
   end
 
+  post '/login' do
+    @teacher = Teacher.find_by(username: params[:username]).authenticate(params[:password])
 
-
+    if @teacher
+      session[:id] = @teacher.id
+      redirect '/students'
+    else
+      redirect '/login'
+    end
+  end
 
 end
