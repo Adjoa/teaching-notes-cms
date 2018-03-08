@@ -5,4 +5,11 @@
 <li><%= student.name %></li>
 <% end %>
 
-<a href="/logout">Log Out</a>
+<br></br>
+<form action="/students/new" method="get">
+  <input type="submit" name="submit" value="Add Student">
+</form>
+
+<form action="/logout" method="get">
+  <input type="submit" name="submit" value="Log Out">
+</form>
