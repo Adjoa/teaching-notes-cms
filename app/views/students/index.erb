@@ -1,4 +1,8 @@
 <h1>My Students</h1>
 <br></br>
 
+<% @teacher.students.each do |student| %>
+<li><%= student.name %></li>
+<% end %>
+
 <a href="/logout">Log Out</a>
