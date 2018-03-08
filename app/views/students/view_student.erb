@@ -1,0 +1,7 @@
+<h1><%= @student.name %></h1>
+<h4><%= @student.email %></h4>
+
+<h1>Entries</h1>
+<% @student.entries.each do |entry| %>
+<h4><%= entry.title %></h4>
+<% end %>
