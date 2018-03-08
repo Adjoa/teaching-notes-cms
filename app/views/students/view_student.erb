@@ -1,5 +1,8 @@
 <h1><%= @student.name %></h1>
 <h4><%= @student.email %></h4>
+<form action="/students/<%= @student.id %>/edit" method="get">
+  <input type="submit" name="edit" value="Edit">
+</form>
 
 <h1>Entries</h1>
 <% @student.entries.each do |entry| %>
