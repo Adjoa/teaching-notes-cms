@@ -32,6 +32,7 @@ class UsersController < ApplicationController
 
   get '/logout' do
     logout
+    redirect '/'
   end
 
 end
