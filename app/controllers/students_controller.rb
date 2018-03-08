@@ -17,8 +17,6 @@ class StudentsController < ApplicationController
   end
 
   post '/students' do
-    # binding.pry
-    # @student = Student.new(params[:student])
     @teacher = Teacher.find(session[:id])
     @student = @teacher.students.build(params[:student])
     if @student.valid?
@@ -44,6 +42,7 @@ class StudentsController < ApplicationController
 
   get '/students/:id/edit' do
     if logged_in?
+      @student = Student.find(params[:id])
       if @student.teacher_id == session[:id]
         erb :'/students/edit_student_info'
       else
@@ -64,7 +63,5 @@ class StudentsController < ApplicationController
       redirect "/students/#{@student.id}/edit"
     end
   end
-
-
 
 end
