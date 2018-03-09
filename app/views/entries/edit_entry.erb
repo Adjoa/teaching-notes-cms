@@ -1,0 +1,9 @@
+<form action="/entries/<%= @entry.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <h1><%= @student.name %></h1>
+  <h4>Title <input type="text" name="entry[title]" value="<%= @entry.title %>"></h1>
+  <br>
+  <textarea name="entry[content]" rows="4" cols="50" value="<%= @entry.content %>"></textarea>
+  <br>
+  <input type="submit" value="Save Changes">
+</form>
