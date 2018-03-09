@@ -5,3 +5,8 @@
 <form action="/students/<%= @student.id %>/entries/<%= @entry.id %>/edit" method="get">
   <input type="submit" value="Edit">
 </form>
+
+<form class="" action="/students/<%= @student.id %>/entries/<%= @entry.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" name="delete" value="Delete Entry">
+</form>
