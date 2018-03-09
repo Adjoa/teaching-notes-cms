@@ -7,8 +7,7 @@
 
 <h1>Entries</h1>
 
-<form class="" action="/entries/new" method="get">
-  <% session[:student_id] = @student.id %>
+<form class="" action="/students/<%= @student.id %>/entries/new" method="get">
   <input type="submit" name="new_entry" value="Add New Entry">
 </form>
 <br>
