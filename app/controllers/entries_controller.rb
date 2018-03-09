@@ -20,12 +20,12 @@ class EntriesController < ApplicationController
       end
     end
 
-    # get '/entries/:id' do
-    #   # binding.pry
-    #   # @student = Student.find(params[:student_id])
-    #   @entry = Entry.find(params[:id])
-    #   erb :'/entries/view_entry'
-    # end
+    get '/entries/:entry_id' do
+      # binding.pry
+      @student = Student.find(params[:id])
+      @entry = Entry.find(params[:entry_id])
+      erb :'/entries/view_entry'
+    end
   end
 
 end
