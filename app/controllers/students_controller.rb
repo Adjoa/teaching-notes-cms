@@ -73,6 +73,8 @@ class StudentsController < ApplicationController
       else
         redirect '/students'
       end
+    else
+      redirect '/login'
     end
   end
 
