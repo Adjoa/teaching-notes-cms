@@ -5,12 +5,15 @@
 </form>
 <br></br>
 
+<h1>Entries</h1>
+
 <form class="" action="/entries/new" method="get">
   <% session[:student_id] = @student.id %>
   <input type="submit" name="new_entry" value="Add New Entry">
 </form>
 <br>
-<h1>Entries</h1>
+
 <% @student.entries.each do |entry| %>
-<h4><%= entry.title %></h4>
+<li><a href="/entries/<%= entry.id %>"><%= entry.title %></a></li>
+<br>
 <% end %>
