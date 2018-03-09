@@ -7,7 +7,7 @@ seed_students = [
 ]
 
 seed_students.each do |seedling|
-  student = teacher.students.create(seedling)
+  student = teacher1.students.create(seedling)
   entry = student.entries.create(title: "Entry 1", content: "Something nice")
   entry.save
 end
