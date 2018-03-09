@@ -7,5 +7,10 @@
   <br>
   <h4>Email <input type="text" name="student[email]" value="<%= @student.email %>"></h4>
   <br>
-  <input type="submit" value="Save Changes">
+  <input type="submit" name="edit" value="Save Changes">
+</form>
+<br>
+<form action="/students/<%= @student.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" name="delete" value="Delete Student">
 </form>
