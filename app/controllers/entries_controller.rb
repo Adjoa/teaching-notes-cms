@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   namespace '/students/:id' do
+
     get '/entries/new' do
       if logged_in?
         @student = Student.find(params[:id])
@@ -21,11 +22,36 @@ class EntriesController < ApplicationController
     end
 
     get '/entries/:entry_id' do
-      # binding.pry
       @student = Student.find(params[:id])
       @entry = Entry.find(params[:entry_id])
       erb :'/entries/view_entry'
     end
-  end
 
+    get '/entries/:entry_id/edit' do
+      if logged_in?
+        @student = Student.find(params[:id])
+        @entry = Entry.find(params[:entry_id])
+        if @student.teacher_id == session[:id]
+          erb :"/entries/edit_entry"
+        else
+          redirect '/students'
+        end
+      else
+        redirect '/login'
+      end
+    end
+
+    patch '/entries/:entry_id' do
+      @student = Student.find(params[:id])
+      @entry = Entry.find(params[:entry_id])
+      @entry.attributes = params[:entry]
+      if @entry.valid?
+        @entry.save
+        redirect "/students/#{@student.id}/entries/#{@entry.id}"
+      else
+        redirect "/students/#{@student.id}/entries/#{@entry.id}/edit"
+      end
+    end
+
+  end # namespace /students/:id
 end
