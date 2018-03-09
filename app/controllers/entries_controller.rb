@@ -53,5 +53,20 @@ class EntriesController < ApplicationController
       end
     end
 
+    delete '/entries/:entry_id' do
+      if logged_in?
+        @student = Student.find(params[:id])
+        @entry = Entry.find(params[:entry_id])
+        if @student.teacher_id == session[:id]
+          @entry.destroy
+          redirect "/students/#{@student.id}"
+        else
+          redirect '/students'
+        end
+      else
+        redirect '/login'
+      end
+    end
+
   end # namespace /students/:id
 end
