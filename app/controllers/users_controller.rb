@@ -13,6 +13,8 @@ class UsersController < ApplicationController
     if @teacher.valid?
       @teacher.save
       session[:id] = @teacher.id
+
+      flash[:login] = "Successfully logged in!"
       redirect '/students'
     else
       redirect '/signup'
@@ -32,7 +34,8 @@ class UsersController < ApplicationController
 
     if @teacher
       session[:id] = @teacher.id
-      flash[:message] = "Hooray, Flash is working!"
+
+      flash[:login] = "Successfully logged in!"
       redirect '/students'
     else
       redirect '/login'
@@ -42,6 +45,8 @@ class UsersController < ApplicationController
   get '/logout' do
     if logged_in?
       logout
+
+      flash[:logout] = "You've been logged out."
       redirect '/'
     else
       redirect '/'
