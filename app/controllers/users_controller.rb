@@ -43,6 +43,8 @@ class UsersController < ApplicationController
       flash[:login] = "Successfully logged in!"
       redirect '/students'
     else
+      error_msg = "Invalid username or password"
+      flash[:error] = error_msg
       redirect '/login'
     end
   end
