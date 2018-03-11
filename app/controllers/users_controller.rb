@@ -17,6 +17,11 @@ class UsersController < ApplicationController
       flash[:login] = "Successfully logged in!"
       redirect '/students'
     else
+      error_msg = @teacher.errors.messages.map do |key, arg|
+        arg.map { |value| "#{key} #{value}" }.join(', ')
+      end.join(', ') + '.'
+
+      flash[:error] = error_msg
       redirect '/signup'
     end
   end
