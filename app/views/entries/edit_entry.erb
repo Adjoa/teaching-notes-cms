@@ -1,3 +1,7 @@
+<% if !!flash[:error] %>
+  <%= flash[:error] %>
+<% end %>
+
 <form action="/students/<%= @student.id %>/entries/<%= @entry.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <h1><%= @student.name %></h1>

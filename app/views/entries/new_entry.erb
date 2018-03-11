@@ -1,3 +1,7 @@
+<% if !!flash[:error] %>
+  <%= flash[:error] %>
+<% end %>
+
 <h2><a href="/students/<%= @student.id %>"><%= @student.name %></a></h2>
 <form action="/students/<%= @student.id %>/entries" method="post">
   <h4>Title <input type="text" name="entry[title]"></h1>
