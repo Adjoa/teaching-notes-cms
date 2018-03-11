@@ -1,14 +1,16 @@
+<h3>Welcome, <%= @teacher.name %></h3>
+<p>Click on a student's name to see more options.</p>
+
 <h1>My Students</h1>
-<br></br>
+
+<form action="/students/new" method="get">
+  <input type="submit" name="submit" value="Add Student">
+</form>
 
 <% @teacher.students.each do |student| %>
 <li><a href="/students/<%= student.id %>"><%= student.name %></a></li>
 <% end %>
-
 <br></br>
-<form action="/students/new" method="get">
-  <input type="submit" name="submit" value="Add Student">
-</form>
 
 <form action="/logout" method="get">
   <input type="submit" name="submit" value="Log Out">
