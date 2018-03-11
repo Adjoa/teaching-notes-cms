@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   post '/signup' do
     @teacher = Teacher.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     if @teacher.valid?
-      # flash[:notice] = "Hooray, Flash is working!"
       @teacher.save
       session[:id] = @teacher.id
       redirect '/students'
@@ -32,6 +31,7 @@ class UsersController < ApplicationController
     @teacher = Teacher.find_by(username: params[:username]).authenticate(params[:password])
 
     if @teacher
+      flash[:login] = "Success!"
       session[:id] = @teacher.id
       redirect '/students'
     else
