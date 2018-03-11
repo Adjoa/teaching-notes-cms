@@ -4,23 +4,23 @@ Teaching Notes is a Sinatra application conceptualized as a student management t
 
 ## Installation
 
-Run the following commands from your command-line:
-
+Run the following commands:
+```
   $ git clone https://github.com/Adjoa/teaching-notes-cms.git
   $ cd teaching-notes-cms
   $ bundle install
   $ rake db:migrate
   $ shotgun
-
+```
 Then navigate to the IP address displayed.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/Adjoa/hack_design-cli-app.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Adjoa/teaching-notes-cms.
 
 ## Authors
 
-* **Adjoa Darien** - [Adjoa](https://github.com/Adjoa)
+* [**Adjoa Darien** ](https://github.com/Adjoa)
 
 ## License
 
