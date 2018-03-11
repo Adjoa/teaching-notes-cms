@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   post '/signup' do
     @teacher = Teacher.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     if @teacher.valid?
+      # flash[:notice] = "Hooray, Flash is working!"
       @teacher.save
       session[:id] = @teacher.id
       redirect '/students'
@@ -41,7 +42,7 @@ class UsersController < ApplicationController
   get '/logout' do
     if logged_in?
       logout
-      redirect '/login'
+      redirect '/'
     else
       redirect '/'
     end
