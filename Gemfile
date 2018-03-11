@@ -12,7 +12,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem "tux"
-gem 'sinatra-flash', '~> 0.3.0'
+gem 'rack-flash3', '~> 1.0', '>= 1.0.5'
 
 group :test do
   gem 'rspec'
