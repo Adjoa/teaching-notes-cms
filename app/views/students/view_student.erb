@@ -1,7 +1,11 @@
+<form action="/students" method="get">
+  <input type="submit" name="home" value="Return to Home">
+</form>
+
 <h1><%= @student.name %></h1>
 <h4><%= @student.email %></h4>
 <form action="/students/<%= @student.id %>/edit" method="get">
-  <input type="submit" name="edit" value="Edit">
+  <input type="submit" name="edit" value="Edit Student Info">
 </form>
 <br></br>
 
