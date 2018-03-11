@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   post '/signup' do
     @teacher = Teacher.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     if @teacher.valid?
-      # flash[:notice] = "Hooray, Flash is working!"
       @teacher.save
       session[:id] = @teacher.id
       redirect '/students'
@@ -33,6 +32,7 @@ class UsersController < ApplicationController
 
     if @teacher
       session[:id] = @teacher.id
+      flash[:message] = "Hooray, Flash is working!"
       redirect '/students'
     else
       redirect '/login'

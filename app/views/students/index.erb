@@ -1,3 +1,7 @@
+<% if !!flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
+
 <h3>Welcome, <%= @teacher.name %></h3>
 <p>Click on a student's name to see more options.</p>
 
