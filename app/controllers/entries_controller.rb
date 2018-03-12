@@ -27,9 +27,17 @@ class EntriesController < ApplicationController
     end
 
     get '/entries/:entry_id' do
-      @student = Student.find(params[:id])
-      @entry = Entry.find(params[:entry_id])
-      erb :'/entries/view_entry'
+      if logged_in?
+        @student = Student.find(params[:id])
+        @entry = Entry.find(params[:entry_id])
+        if @student.teacher_id == session[:id]
+          erb :'/entries/view_entry'
+        else
+          redirect '/students'
+        end
+      else
+        redirect '/login'
+      end
     end
 
     get '/entries/:entry_id/edit' do
