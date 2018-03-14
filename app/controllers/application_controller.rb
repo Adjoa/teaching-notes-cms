@@ -24,6 +24,12 @@ class ApplicationController < Sinatra::Base
     def logout
       session.clear
     end
+
+    def errors_found(obj_name)
+      error_msg = obj_name.errors.messages.map do |key, val|
+        val.map { |arg| "#{key} #{arg}"}
+      end.join(', ') + '.'
+    end
   end
 
 end
