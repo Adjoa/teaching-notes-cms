@@ -1,6 +1,6 @@
 # Teaching Notes
 
-Teaching Notes is a Sinatra application conceptualized as a student management tool for music teachers.
+Teaching Notes is a student management tool for music teachers built with Sinatra. 
 
 ## Installation
 
