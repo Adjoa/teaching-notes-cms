@@ -17,11 +17,7 @@ class EntriesController < ApplicationController
         @entry.save
         redirect "/students/#{@student.id}"
       else
-        error_msg = @entry.errors.messages.map do |key, arg|
-          arg.map { |value| "#{key} #{value}" }.join(', ')
-        end.join(', ') + '.'
-
-        flash[:error] = error_msg
+        flash[:error] = errors_found(@entry)
         redirect "/students/#{@student.id}/entries/new"
       end
     end
@@ -62,11 +58,7 @@ class EntriesController < ApplicationController
         @entry.save
         redirect "/students/#{@student.id}/entries/#{@entry.id}"
       else
-        error_msg = @entry.errors.messages.map do |key, arg|
-          arg.map { |value| "#{key} #{value}" }.join(', ')
-        end.join(', ') + '.'
-
-        flash[:error] = error_msg
+        flash[:error] = errors_found(@entry)
         redirect "/students/#{@student.id}/entries/#{@entry.id}/edit"
       end
     end
