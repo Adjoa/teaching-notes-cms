@@ -23,11 +23,7 @@ class StudentsController < ApplicationController
       @student.save
       redirect '/students'
     else
-      error_msg = @student.errors.messages.map do |key, arg|
-        arg.map { |value| "#{key} #{value}" }.join(', ')
-      end.join(', ') + '.'
-
-      flash[:error] = error_msg
+      flash[:error] = errors_found(@student)
       redirect '/students/new'
     end
   end
@@ -65,11 +61,7 @@ class StudentsController < ApplicationController
       @student.save
       redirect "/students/#{@student.id}"
     else
-      error_msg = @student.errors.messages.map do |key, arg|
-        arg.map { |value| "#{key} #{value}" }.join(', ')
-      end.join(', ') + '.'
-
-      flash[:error] = error_msg
+      flash[:error] = errors_found(@student)
       redirect "/students/#{@student.id}/edit"
     end
   end
